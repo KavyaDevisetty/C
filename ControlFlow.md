@@ -482,3 +482,34 @@ int main() {
 Enter number:406
 Reversed number is:604
 ~~~
+### 22.WRITE A C PROGRAM TO FIND THE LARGEST ELEMENT IN AN ARRAY USING A FOR LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[50],size,large;
+    printf("Enter size of array: ");
+    scanf("%d",&size);
+    printf("Enter array elements: ");
+    for(int i=0;i<size;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    large=arr[0];
+    for(int i=1;i<size;i++)
+    {
+        if(arr[i]>large)
+        {
+            large=arr[i];
+        }
+    }
+    printf("Largest element in the array is: %d",large);
+       
+}
+~~~
+### Output
+~~~c
+Enter size of array: 5
+Enter array elements: 10 20 30 40 50
+Largest element in the array is: 50
+~~~
