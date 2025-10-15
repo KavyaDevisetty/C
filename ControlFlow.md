@@ -1,6 +1,6 @@
  1.WRITE A C PROGRAM TO ACCEPT TWO INTEGERS AND CHECK WHETHER THEY ARE EQUAL OR 
 NOT?
-~~~~c
+~~~c
 #include<stdio.h>
 int main()
 {
