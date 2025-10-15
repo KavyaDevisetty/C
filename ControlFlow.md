@@ -608,6 +608,50 @@ Sum of elements in the array is 15
 
  
  ### 27.WRITE A C PROGRAM TO COUNT THE NUMBER OF WORDS IN A GIVEN STRING USING A WHILE LOOP?
+
+~~~c
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i = 0, wordCount = 0;
+
+    printf("Enter a string: ");
+    gets(str);   
+
+    // Skip any leading spaces
+    while (str[i] == ' ') {
+        i++;
+    }
+
+    // Traverse the string
+    while (str[i] != '\0') {
+        // If a space is found, skip extra spaces and increase word count
+        if (str[i] == ' ') {
+            wordCount++;
+            while (str[i] == ' ') {
+                i++; // skip multiple spaces
+            }
+        } else {
+            i++;
+        }
+    }
+
+    // Count the last word (if string isn't empty)
+    if (i > 0 && str[i - 1] != ' ')
+        wordCount++;
+
+    printf("Number of words in the given string: %d\n", wordCount);
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Enter a string: C language
+Number of words in the given string: 2
+~~~
  
  ### 28.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN STRING IS A PALINDROME OR NOT USING A FOR LOOP?
  ~~~c
