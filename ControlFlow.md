@@ -459,3 +459,26 @@ Enter the number of terms: 5
 Fibonacci Series up to 5 terms:
 0 1 1 2 3
 ~~~
+###  21.WRITE A C PROGRAM TO REVERSE A GIVEN NUMBER USING A WHILE LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int num,r=0;
+    printf("Enter number:");
+    scanf("%d",&num);
+    printf("Reversed number is:");
+    while(num>0)
+    {
+        r=num%10;
+        printf("%d",r);
+        num/=10;
+    }
+       
+}
+~~~
+### Output
+~~~c
+Enter number:406
+Reversed number is:604
+~~~
