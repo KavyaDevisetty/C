@@ -605,6 +605,30 @@ Enter array elements: 1 2 3 4 5
 Sum of elements in the array is 15
 ~~~
 ### 26.WRITE A C PROGRAM TO COUNT THE NUMBER OF VOWELS IN A GIVEN STRING USING A FOR LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i = 0, count = 0;
+
+    printf("Enter a string: ");
+    scanf("%s",str);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+            count++;
+    }
+    printf("Number of vowels in the string is %d",count);
+    
+}
+
+~~~
+### Output
+~~~c
+Enter a string: Apple
+Number of vowels in the string is 2
+~~~
 
  
  ### 27.WRITE A C PROGRAM TO COUNT THE NUMBER OF WORDS IN A GIVEN STRING USING A WHILE LOOP?
