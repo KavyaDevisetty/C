@@ -39,3 +39,23 @@ else
 Enter integer:2
 Even number
 ~~~
+###  3.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN NUMBER IS POSITIVE OR NEGATIVE?
+~~~c
+#include<stdio.h>
+int main()
+{
+  int n;
+  printf("Enter number:");
+  scanf("%d",&n);
+  if(n>0)
+    printf("Positive number");
+  else
+    printf("Negative number");
+}
+~~~
+### Output
+~~~c
+Enter number:2
+Positive number
+~~~
+
