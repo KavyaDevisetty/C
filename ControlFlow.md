@@ -209,3 +209,38 @@ int main()
 Enter 2 numbers:10 20
 20 is greater than 10
 ~~~
+
+### 11.WRITE A C PROGRAM TO ENTER WEEK NUMBER AND PRINT DAY OF WEEK
+~~~c
+#include <stdio.h>
+
+int main() {
+  int day;
+  printf("Enter week number(1-7):");
+  scanf("%d",&day);
+  switch(day)
+  {
+      case 1:printf("Sunday");
+            break;
+      case 2:printf("Monday");
+            break;     
+      case 3:printf("Tuesday");
+            break;
+      case 4:printf("Wednesday");
+            break;
+      case 5:printf("Thursday");
+            break;
+      case 6:printf("Friday");
+            break;
+      case 7:printf("Saturday");
+            break;
+      default:printf("Invalid Case");
+            
+  }
+}
+~~~
+### Output
+~~~c
+Enter week number(1-7):3
+Tuesday
+~~~
