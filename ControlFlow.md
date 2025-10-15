@@ -103,3 +103,26 @@ int main()
 Enter age: 19
 Eligible To Cast his/her Vote
 ~~~
+###  6.WRITE A C PROGRAM TO READ THE VALUE OF AN INTEGER M AND DISPLAY THE VALUE OF N IS 1 WHEN M IS LARGER THAN 0, 0 WHEN M IS 0 AND -1 WHEN M IS LESS THAN 0.
+~~~c
+#include<stdio.h>
+int main()
+{
+  int m,n;
+  printf("enter an integer:");
+  scanf("%d",&m);
+  if(m>0)
+    n=1;
+  else if (m<0)
+    n=-1;
+  else
+    n=0;
+printf("n is %d",n);
+}
+~~~
+### Output
+~~~c
+enter an integer:9
+n is 1
+~~~
+~~~c
