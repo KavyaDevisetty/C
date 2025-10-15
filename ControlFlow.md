@@ -190,3 +190,22 @@ int main()
 Enter a character:1
 Not Alphabet
 ~~~
+### 10.WRITE A C PROGRAM TO FIND MINIMUM OR MAXIMUM BETWEEN TWO NUMBERS?
+~~~c
+#include<stdio.h>
+int main()
+{
+    int a,b;
+    printf("Enter 2 numbers:");
+    scanf("%d %d",&a,&b);
+    if(a>b)
+        printf("%d is greater than %d",a,b);
+    else
+        printf("%d is greater than %d",b,a);   
+}
+~~~
+### Output
+~~~c
+Enter 2 numbers:10 20
+20 is greater than 10
+~~~
