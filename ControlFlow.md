@@ -290,3 +290,26 @@ int main() {
 Enter month(1-12):5
 31 days
 ~~~
+### 14.WRITE A C PROGRAM TO FIND MAXIMUM BETWEEN TWO NUMBERS USING SWITCH CASE?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a,b;
+    printf("Enter two integers:");
+    scanf("%d %d",&a,&b);
+    int max = a>b;
+    switch(max)
+    {
+        case 0: printf("%d is greater",b); break;
+        case 1: printf("%d is greater",a); break;
+        
+    }
+  
+}
+~~~
+### Output
+~~~c
+Enter two integers:20 10
+20 is greater
+~~~
