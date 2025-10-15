@@ -604,3 +604,32 @@ Enter size of array: 5
 Enter array elements: 1 2 3 4 5
 Sum of elements in the array is 15
 ~~~
+### 26.WRITE A C PROGRAM TO COUNT THE NUMBER OF VOWELS IN A GIVEN STRING USING A FOR LOOP?
+
+ 
+ ### 27.WRITE A C PROGRAM TO COUNT THE NUMBER OF WORDS IN A GIVEN STRING USING A WHILE LOOP?
+ 
+ ### 28.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN STRING IS A PALINDROME OR NOT USING A FOR LOOP?
+ 
+ ### 29.WRITE A C PROGRAM TO CONCATENATE TWO STRINGS WITHOUT USING LIBRARY FUNCTIONS USING A WHILE LOOP?
+ 
+ ### 30.WRITE A C PROGRAM TO FIND THE LENGTH OF A STRING USING A FOR LOOP?
+ ~~~c
+#include <stdio.h>
+
+int main() {
+    char str[20];
+    printf("Enter string:");
+    scanf("%s",str);
+    int len=0;
+    for( int i=0;str[i]!='\0';i++)  
+        len++;
+    printf("Length of string is %d",len);
+       
+}
+~~~
+### Output
+~~~c
+Enter string:Github
+Length of string is 6
+~~~
