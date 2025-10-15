@@ -333,3 +333,21 @@ int main() {
 ~~~c
 2 4 6 8 10 12 14 16 18
 ~~~
+###  16.WRITE A C PROGRAM TO CALCULATE THE SUM OF NUMBERS FROM 1 TO 100 USING A WHILE LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+  int i=1,sum=0;
+  while(i<=100)
+  {
+      sum=sum+i;
+      i++;
+  }
+  printf("Sum = %d",sum);
+}
+~~~
+### Output
+~~~c
+Sum = 5050
+~~~
