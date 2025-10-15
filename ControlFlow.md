@@ -313,3 +313,23 @@ int main() {
 Enter two integers:20 10
 20 is greater
 ~~~
+###  15.WRITE A C PROGRAM TO PRINT EVEN NUMBERS BETWEEN 1 TO 20 USING A FOR LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int i=1;
+    for( i=1;i<20;i++)
+    {
+        if(i%2==0)
+        {
+            printf("%d ",i);
+        }
+    }
+  
+}
+~~~
+### Output
+~~~c
+2 4 6 8 10 12 14 16 18
+~~~
