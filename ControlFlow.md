@@ -244,3 +244,27 @@ int main() {
 Enter week number(1-7):3
 Tuesday
 ~~~
+
+### 12.WRITE A C PROGRAM TO CHECK WHETHER A CHARACTER IS UPPERCASE OR LOWERCASE?
+~~~c
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char ch;
+    printf("Enter character:");
+    scanf("%c",&ch);
+    if(ch>='A'&& ch<='Z')
+        printf("Uppercase");
+    else if (ch>='a' && ch<= 'z')
+        printf("Lowercase");
+    else
+        printf("Not an alphabet");
+    
+}
+~~~
+### Output
+~~~c
+Enter character:A
+Uppercase
+~~~
