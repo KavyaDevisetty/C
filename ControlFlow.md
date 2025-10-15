@@ -84,3 +84,22 @@ int main() {
 Enter a year: 2000
 2000 is a leap year.
 ~~~
+
+### 5.WRITE A C PROGRAM TO READ THE AGE OF A CANDIDATE AND DETERMINE WHETHER HE IS ELIGIBLE TO CAST HIS/HER OWN VOTE
+~~~c
+#include<stdio.h>
+int main()
+{
+  int age;
+  scanf("%d",&age);
+  if(age>=18)
+    printf("Eligible To Cast his/her Vote");
+  else
+    printf("Not Eligible To Cast his/her Vote");
+}
+~~~
+### Output
+~~~c
+Enter age: 19
+Eligible To Cast his/her Vote
+~~~
