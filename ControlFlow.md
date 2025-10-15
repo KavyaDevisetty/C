@@ -13,7 +13,7 @@ int main()
     printf("Both are not equal.");
   return 0;
 }
-```
+~~~
 ### Output
 ~~~c
 enter 2 integers:2 3
