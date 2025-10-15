@@ -409,3 +409,25 @@ int main() {
 Enter a number: 406
 406 is not a prime number.
 ~~~
+### 19.WRITE A C PROGRAM TO FIND THE SUM OF DIGITS OF A NUMBER USING A WHILE LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int num,sum=0,r=0;
+    printf("Enter number:");
+    scanf("%d",&num);
+    while(num>0)
+    {
+        r=num%10;
+        sum+=r;
+        num/=10;
+    }
+    printf("Sum of digits = %d",sum);   
+}
+~~~
+### Output
+~~~c
+Enter number:406
+Sum of digits = 10
+~~~
