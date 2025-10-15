@@ -610,6 +610,47 @@ Sum of elements in the array is 15
  ### 27.WRITE A C PROGRAM TO COUNT THE NUMBER OF WORDS IN A GIVEN STRING USING A WHILE LOOP?
  
  ### 28.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN STRING IS A PALINDROME OR NOT USING A FOR LOOP?
+ ~~~c
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>  // for tolower()
+
+int main() {
+    char str[100];
+    int i, length, flag = 0;
+
+    printf("Enter a string: ");
+    scanf("%s",str);  
+
+    length = strlen(str);
+
+    // Convert all characters to lowercase to remove case sensitivity
+    for (i = 0; i < length; i++) {
+        str[i] = tolower(str[i]);
+    }
+
+    // Check for palindrome
+    for (i = 0; i < length / 2; i++) {
+        if (str[i] != str[length - i - 1]) {
+            flag = 1; // not palindrome
+            break;
+        }
+    }
+
+    if (flag == 0)
+        printf("The string is a palindrome.\n");
+    else
+        printf("The string is not a palindrome.\n");
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Enter a string: Madam
+The string is a palindrome.
+~~~
  
  ### 29.WRITE A C PROGRAM TO CONCATENATE TWO STRINGS WITHOUT USING LIBRARY FUNCTIONS USING A WHILE LOOP?
  ~~~c
@@ -620,7 +661,7 @@ int main() {
     int i = 0, j = 0;
 
     printf("Enter first string: ");
-    gets(str1);   // You can use fgets() instead for safety
+    gets(str1);   
     printf("Enter second string: ");
     gets(str2);
 
