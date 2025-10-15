@@ -431,3 +431,31 @@ int main() {
 Enter number:406
 Sum of digits = 10
 ~~~
+### 20.WRITE A C PROGRAM TO PRINT FIBONACCI SERIES UP TO N TERMS USING A FOR LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int n, first = 0, second = 1, next, i;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series up to %d terms:\n", n);
+
+    for (i = 1; i <= n; i++) {
+        printf("%d ", first);
+        next = first + second;
+        first = second;
+        second = next;
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter the number of terms: 5
+Fibonacci Series up to 5 terms:
+0 1 1 2 3
+~~~
