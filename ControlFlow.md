@@ -371,3 +371,41 @@ int main() {
 Enter number:5
 Factorial of 5 = 120
 ~~~
+###  18.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN NUMBER IS PRIME OR NOT USING A WHILE LOOP.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int num, i = 2, count = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    // Handle numbers less than 2
+    if (num <= 1) {
+        printf("%d is not a prime number.\n", num);
+        return 0;
+    }
+
+    // Check divisibility using while loop
+    while (i <= num / 2) {
+        if (num % i == 0) {
+            count = 1; // not prime
+            break;
+        }
+        i++;
+    }
+
+    if (count == 0)
+        printf("%d is a prime number.\n", num);
+    else
+        printf("%d is not a prime number.\n", num);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter a number: 406
+406 is not a prime number.
+~~~
