@@ -146,3 +146,29 @@ int main()
 Enter 3 numbers:30 10 20
 30 is greater
 ~~~
+### 8.WRITE A C PROGRAM TO CHECK WHETHER A CHARACTER IS A VOWEL OR CONSONANT?
+~~~c
+#include<stdio.h>
+#include <ctype.h>
+int main()
+{
+  char ch;
+  printf("Enter a character:");
+  scanf("%c",&ch);
+  if(isalpha(ch))
+  {
+    if(ch=='a'|| ch=='A'||ch=='e'||ch=='E'||ch=='I'||ch=='i'||ch=='O'||ch=='o'||ch=='U'||ch=='u')
+        printf("Vowel");
+    else
+        printf("Consonant");
+  }
+  else
+    printf("Not an alphabet");
+}
+~~~
+### Output
+~~~c
+Enter a character:e
+Vowel
+~~~
+
