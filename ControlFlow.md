@@ -18,3 +18,24 @@ int main()
 enter 2 integers:2 3
 Both are not equal.
 ~~~
+
+### 2.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN NUMBER IS EVEN OR ODD?
+~~~c
+#include<stdio.h>
+int main()
+{
+  int n;
+  printf("Enter integer:");
+  scanf("%d",&n);
+  if(n%2==0)
+    printf("Even number");
+else
+    printf("Odd number");
+}
+~~~
+### Output
+~~~c
+
+Enter integer:2
+Even number
+~~~
