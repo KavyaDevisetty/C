@@ -547,3 +547,31 @@ Enter array elements: 50 30 20 10 40
 Smallest element in the array is: 10
 
 ~~~
+### 24.WRITE A C PROGRAM TO PRINT ALL THE ELEMENTS OF AN ARRAY USING A FOR LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[50],size;
+    printf("Enter size of array: ");
+    scanf("%d",&size);
+    printf("Enter array elements: ");
+    for(int i=0;i<size;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Array Elements are:");
+    for(int i=0;i<size;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    
+       
+}
+~~~
+### Output
+~~~c
+Enter size of array: 5
+Enter array elements: 1 2 3 4 5
+Array Elements are:1 2 3 4 5 
+~~~
