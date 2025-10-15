@@ -513,3 +513,37 @@ Enter size of array: 5
 Enter array elements: 10 20 30 40 50
 Largest element in the array is: 50
 ~~~
+###  23.WRITE A C PROGRAM TO FIND THE SMALLEST ELEMENT IN AN ARRAY USING A WHILE LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[50],size,small;
+    printf("Enter size of array: ");
+    scanf("%d",&size);
+    printf("Enter array elements: ");
+    for(int i=0;i<size;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    small=arr[0];
+    int i=1;
+    while(i<size)
+    {
+        if(arr[i]<small)
+        {
+            small=arr[i];
+        }
+        i++;
+    }
+    printf("Smallest element in the array is: %d",small);
+       
+}
+~~~
+### Output
+~~~c
+Enter size of array: 5
+Enter array elements: 50 30 20 10 40
+Smallest element in the array is: 10
+
+~~~
