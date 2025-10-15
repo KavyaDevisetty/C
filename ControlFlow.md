@@ -125,4 +125,24 @@ printf("n is %d",n);
 enter an integer:9
 n is 1
 ~~~
+###  7.WRITE A C PROGRAM TO FIND THE LARGEST OF THREE NUMBERS?
 ~~~c
+#include<stdio.h>
+int main()
+{
+  int a,b,c;
+  printf("Enter 3 numbers:");
+  scanf("%d %d %d",&a,&b,&c);
+  if (a>=b && a>=c)
+    printf("%d is greater",a);
+  else if (b>c)
+    printf("%d is greater",b);
+  else
+    printf("%d is greater",c);
+}
+~~~
+### Output
+~~~c
+Enter 3 numbers:30 10 20
+30 is greater
+~~~
