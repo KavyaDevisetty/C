@@ -575,3 +575,32 @@ Enter size of array: 5
 Enter array elements: 1 2 3 4 5
 Array Elements are:1 2 3 4 5 
 ~~~
+###  25.WRITE A C PROGRAM TO FIND THE SUM OF ELEMENTS IN AN ARRAY USING A WHILE LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[50],size,sum=0;
+    printf("Enter size of array: ");
+    scanf("%d",&size);
+    printf("Enter array elements: ");
+    for(int i=0;i<size;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    int i=0;
+    while(i<size)
+    {
+      sum+=arr[i];
+      i++;
+    }
+    printf("Sum of elements in the array is %d ",sum);
+       
+}
+~~~
+### Output
+~~~c
+Enter size of array: 5
+Enter array elements: 1 2 3 4 5
+Sum of elements in the array is 15
+~~~
