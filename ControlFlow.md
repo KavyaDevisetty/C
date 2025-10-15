@@ -351,3 +351,23 @@ int main() {
 ~~~c
 Sum = 5050
 ~~~
+###  17.WRITE A C PROGRAM TO FIND THE FACTORIAL OF A GIVEN NUMBER USING A FOR LOOP?
+~~~c
+#include <stdio.h>
+
+int main() {
+  int i=1,fact=1,n;
+  printf("Enter number:");
+  scanf("%d",&n);
+  for(i=1;i<=n;i++)
+  {
+      fact=fact*i;
+  }
+  printf("Factorial of %d = %d",n,fact);
+}
+~~~
+### Output
+~~~c
+Enter number:5
+Factorial of 5 = 120
+~~~
