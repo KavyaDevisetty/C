@@ -144,3 +144,43 @@ Enter the size of array:6
 Enter elements of array:1 2 2 3 2 3
 No of duplicate elements in the array is:3
 ~~~
+###  6. Write a program in C to print all unique elements in an array.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, j, count;
+
+    printf("Enter number of elements in array: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements: ", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Unique elements are: ");
+    for(i = 0; i < n; i++) {
+        count = 0;
+        for(j = 0; j < n; j++) {
+            if(arr[i] == arr[j] && i != j) {
+                count++;
+                break;  // stop if duplicate found
+            }
+        }
+        if(count == 0) {
+            printf("%d ", arr[i]);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Enter number of elements in array: 5
+Enter 5 elements: 1 2 3 4 1
+Unique elements are: 2 3 4
+~~~
