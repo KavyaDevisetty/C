@@ -111,3 +111,36 @@ Enter the size of array:5
 Enter elements of array:1 2 3 4 5
 Copied Elements are:1 2 3 4 5
 ~~~
+### 5. Write a program in C to count the total number of duplicate elements in an array
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a[50],n,count=0;
+    printf("Enter the size of array:");
+    scanf("%d",&n);
+    printf("Enter elements of array:");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[i]==a[j])
+            {
+                count++;
+                break;
+            }   
+        }
+    }
+    printf("No of duplicate elements in the array is:%d",count);
+}
+~~~
+### Output
+~~~c
+Enter the size of array:6
+Enter elements of array:1 2 2 3 2 3
+No of duplicate elements in the array is:3
+~~~
