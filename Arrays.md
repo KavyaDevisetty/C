@@ -80,3 +80,34 @@ Enter the size of array:5
 Enter elements of array:1 2 3 4 5
 Sum = 15 
 ~~~
+###  4. Write a program in C to copy the elements of one array into another array.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a[50],b[50],n,sum=0;
+    printf("Enter the size of array:");
+    scanf("%d",&n);
+    printf("Enter elements of array:");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++)
+    {
+        b[i]=a[i];
+        
+    }
+    printf("Copied Elements are:");
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
+~~~
+### Output
+~~~c
+Enter the size of array:5
+Enter elements of array:1 2 3 4 5
+Copied Elements are:1 2 3 4 5
+~~~
