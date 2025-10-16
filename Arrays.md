@@ -52,3 +52,31 @@ Enter the size of array:5
 Enter elements of array:1 2 3 4 5
 Elements of array in the reverse order are:5 4 3 2 1 
 ~~~
+###  3. Write a program in C to find the sum of all elements of the array.
+~~~c
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int a[50],n,sum=0;
+    printf("Enter the size of array:");
+    scanf("%d",&n);
+    printf("Enter elements of array:");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++)
+    {
+        sum+=a[i];
+    }
+    printf("Sum = %d ",sum);
+    
+}
+~~~
+### Output
+~~~c
+Enter the size of array:5
+Enter elements of array:1 2 3 4 5
+Sum = 15 
+~~~
