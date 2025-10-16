@@ -184,3 +184,67 @@ Enter number of elements in array: 5
 Enter 5 elements: 1 2 3 4 1
 Unique elements are: 2 3 4
 ~~~
+### 7. Write a program in C to merge two arrays of the same size sorted in descending order.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int size, i, j, temp;
+
+    // Input size of arrays
+    printf("Enter the size of the arrays: ");
+    scanf("%d", &size);
+
+    int arr1[size], arr2[size], merged[2 * size];
+
+    // Input elements of first array
+    printf("Enter elements of first array:\n");
+    for (i = 0; i < size; i++) {
+        scanf("%d", &arr1[i]);
+    }
+
+    // Input elements of second array
+    printf("Enter elements of second array:\n");
+    for (i = 0; i < size; i++) {
+        scanf("%d", &arr2[i]);
+    }
+
+    // Merge both arrays
+    for (i = 0; i < size; i++) {
+        merged[i] = arr1[i];
+        merged[i + size] = arr2[i];
+    }
+
+    // Sort merged array in descending order
+    for (i = 0; i < 2 * size - 1; i++) {
+        for (j = i + 1; j < 2 * size; j++) {
+            if (merged[i] < merged[j]) {
+                temp = merged[i];
+                merged[i] = merged[j];
+                merged[j] = temp;
+            }
+        }
+    }
+
+    // Display merged array
+    printf("\nMerged array in descending order:\n");
+    for (i = 0; i < 2 * size; i++) {
+        printf("%d ", merged[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+nter the size of the arrays: 5
+Enter elements of first array:
+1 3 2 4 2
+Enter elements of second array:
+6 4 2 5 4
+
+Merged array in descending order:
+6 5 4 4 4 3 2 2 2 1 
+~~~
