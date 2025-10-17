@@ -70,3 +70,40 @@ Size of value pointed by char pointer: 1 bytes
 Size of double pointer: 8 bytes
 Size of value pointed by double pointer: 8 bytes
 ~~~
+
+### 4. Write a program to illustrate the dereferencing of pointers.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a = 25;       
+    int *ptr;         
+    ptr = &a;         
+
+    printf("Value of a: %d\n", a);
+    printf("Address of a: %p\n", &a);
+    printf("Address stored in ptr: %p\n", ptr);
+    printf("Value pointed by ptr (dereferenced value): %d\n", *ptr);
+
+    // changing value using pointer dereferencing
+    *ptr = 50;
+    printf("\nAfter modifying value using pointer:\n");
+    printf("New value of a: %d\n", a);
+    printf("Value pointed by ptr: %d\n", *ptr);
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Value of a: 25
+Address of a: 0x7ffcade0c2d4
+Address stored in ptr: 0x7ffcade0c2d4
+Value pointed by ptr (dereferenced value): 25
+
+After modifying value using pointer:
+New value of a: 50
+Value pointed by ptr: 50
+~~~
+###  5. C program to illustrate pointer arithmeti
