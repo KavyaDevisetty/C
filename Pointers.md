@@ -169,3 +169,20 @@ Address: 0x7fffbfdd0a68, Value: 30
 
 Difference between ptr2 and ptr1: 0 elements
 ~~~
+###  6. Write a program to declare an integer variable a, assign it a value, then declare a pointer variable, assign it the address of a, and finally print the value of a using the pointer variable.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a = 10;
+    int *p;
+    p=&a;
+    printf("Value = %d",*p);
+
+ 
+}
+~~~
+### Output
+~~~c
+Value = 10
+~~~
