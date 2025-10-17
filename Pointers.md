@@ -186,3 +186,59 @@ int main() {
 ~~~c
 Value = 10
 ~~~
+### 7. Write a program to print postfix/prefix increment/decrement in a pointer variable of base type int*.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a[5] = {10, 20, 30, 40, 50};
+    int *ptr;
+
+    ptr = a; // pointer points to the first element
+
+    printf("Initial pointer address: %p, value: %d\n\n", ptr, *ptr);
+
+    // --- Postfix increment ---
+    printf("Postfix increment (ptr++):\n");
+    printf("Address before increment: %p, value: %d\n", ptr, *ptr);
+    ptr++;
+    printf("Address after increment: %p, value: %d\n\n", ptr, *ptr);
+
+    // --- Prefix increment ---
+    printf("Prefix increment (++ptr):\n");
+    ++ptr;
+    printf("Address after increment: %p, value: %d\n\n", ptr, *ptr);
+
+    // --- Postfix decrement ---
+    printf("Postfix decrement (ptr--):\n");
+    printf("Address before decrement: %p, value: %d\n", ptr, *ptr);
+    ptr--;
+    printf("Address after decrement: %p, value: %d\n\n", ptr, *ptr);
+
+    // --- Prefix decrement ---
+    printf("Prefix decrement (--ptr):\n");
+    --ptr;
+    printf("Address after decrement: %p, value: %d\n", ptr, *ptr);
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Initial pointer address: 0x7fff9113dbe0, value: 10
+
+Postfix increment (ptr++):
+Address before increment: 0x7fff9113dbe0, value: 10
+Address after increment: 0x7fff9113dbe4, value: 20
+
+Prefix increment (++ptr):
+Address after increment: 0x7fff9113dbe8, value: 30
+
+Postfix decrement (ptr--):
+Address before decrement: 0x7fff9113dbe8, value: 30
+Address after decrement: 0x7fff9113dbe4, value: 20
+
+Prefix decrement (--ptr):
+Address after decrement: 0x7fff9113dbe0, value: 10
+~~~
