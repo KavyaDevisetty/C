@@ -273,3 +273,33 @@ Element 2: Value = 30	 Address = 0x7ffe3eb1ded8
 Element 3: Value = 40	 Address = 0x7ffe3eb1dedc
 Element 4: Value = 50	 Address = 0x7ffe3eb1dee0
 ~~~
+### 9. Write a program to print the value of array elements  using pointers and subscript notation.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a[5] = {10, 20, 30, 40, 50};
+    int *ptr;
+    int i;
+
+    ptr = a; // pointer points to the base address of the array
+
+    printf("Printing array elements using Pointer and Subscript Notation:\n\n");
+
+    for (i = 0; i < 5; i++) {
+        printf("Element %d:  *(ptr + %d) = %d\t ptr[%d] = %d\n", i, i, *(ptr + i), i, ptr[i]);
+    }
+
+    return 0;
+}
+~~~
+### Ouput
+~~~c
+Printing array elements using Pointer and Subscript Notation:
+
+Element 0:  *(ptr + 0) = 10	 ptr[0] = 10
+Element 1:  *(ptr + 1) = 20	 ptr[1] = 20
+Element 2:  *(ptr + 2) = 30	 ptr[2] = 30
+Element 3:  *(ptr + 3) = 40	 ptr[3] = 40
+Element 4:  *(ptr + 4) = 50	 ptr[4] = 50
+~~~
