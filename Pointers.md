@@ -242,3 +242,34 @@ Address after decrement: 0x7fff9113dbe4, value: 20
 Prefix decrement (--ptr):
 Address after decrement: 0x7fff9113dbe0, value: 10
 ~~~
+### 8.  Write a Program to print the value and address of  elements of an array using pointers notation.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a[5] = {10, 20, 30, 40, 50};
+    int *ptr;
+    int i;
+
+    ptr = a; 
+
+    printf("Value and Address of Array Elements using Pointer Notation:\n\n");
+
+    for (i = 0; i < 5; i++) {
+        printf("Element %d: Value = %d\t Address = %p\n", i, *(ptr + i), (ptr + i));
+    }
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Value and Address of Array Elements using Pointer Notation:
+
+Element 0: Value = 10	 Address = 0x7ffe3eb1ded0
+Element 1: Value = 20	 Address = 0x7ffe3eb1ded4
+Element 2: Value = 30	 Address = 0x7ffe3eb1ded8
+Element 3: Value = 40	 Address = 0x7ffe3eb1dedc
+Element 4: Value = 50	 Address = 0x7ffe3eb1dee0
+~~~
