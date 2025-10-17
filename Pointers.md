@@ -106,4 +106,66 @@ After modifying value using pointer:
 New value of a: 50
 Value pointed by ptr: 50
 ~~~
-###  5. C program to illustrate pointer arithmeti
+###  5. C program to illustrate pointer arithmetic
+~~~c
+#include <stdio.h>
+
+int main() {
+    int a[5] = {10, 20, 30, 40, 50};
+    int *ptr1, *ptr2;
+
+    ptr1 = a;       // points to the first element (a[0])
+    ptr2 = &a[3];   // points to the fourth element (a[3])
+
+    printf("Initial positions:\n");
+    printf("ptr1 -> Address: %p, Value: %d\n", ptr1, *ptr1);
+    printf("ptr2 -> Address: %p, Value: %d\n\n", ptr2, *ptr2);
+
+    // --- Incrementing pointer ---
+    ptr1++;  // moves to next element
+    printf("After Incrementing ptr1 (ptr1++):\n");
+    printf("Address: %p, Value: %d\n\n", ptr1, *ptr1);
+
+    // --- Decrementing pointer ---
+    ptr2--;  // moves one element back
+    printf("After Decrementing ptr2 (ptr2--):\n");
+    printf("Address: %p, Value: %d\n\n", ptr2, *ptr2);
+
+    // --- Pointer addition ---
+    ptr1 = ptr1 + 2;  // moves two elements ahead
+    printf("After Adding 2 to ptr1 (ptr1 + 2):\n");
+    printf("Address: %p, Value: %d\n\n", ptr1, *ptr1);
+
+    // --- Pointer subtraction ---
+    ptr1 = ptr1 - 1;  // moves one element back
+    printf("After Subtracting 1 from ptr1 (ptr1 - 1):\n");
+    printf("Address: %p, Value: %d\n\n", ptr1, *ptr1);
+
+    // --- Pointer difference ---
+    int diff = ptr2 - ptr1;
+    printf("Difference between ptr2 and ptr1: %d elements\n", diff);
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Initial positions:
+ptr1 -> Address: 0x7fffbfdd0a60, Value: 10
+ptr2 -> Address: 0x7fffbfdd0a6c, Value: 40
+
+After Incrementing ptr1 (ptr1++):
+Address: 0x7fffbfdd0a64, Value: 20
+
+After Decrementing ptr2 (ptr2--):
+Address: 0x7fffbfdd0a68, Value: 30
+
+After Adding 2 to ptr1 (ptr1 + 2):
+Address: 0x7fffbfdd0a6c, Value: 40
+
+After Subtracting 1 from ptr1 (ptr1 - 1):
+Address: 0x7fffbfdd0a68, Value: 30
+
+Difference between ptr2 and ptr1: 0 elements
+~~~
