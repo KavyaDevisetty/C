@@ -1370,3 +1370,436 @@ Sum of the two matrices:
 7 7 7
 ~~~
 
+###  41. Write a program to multiply two matrix using pointers
+~~~c
+#include <stdio.h>
+
+int main() {
+    int rows1 = 2, cols1 = 3;
+    int rows2 = 3, cols2 = 2;
+
+    int matrix1[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    int matrix2[3][2] = {{7, 8}, {9, 10}, {11, 12}};
+    int product[2][2] = {0};
+
+    int (*ptr1)[3] = matrix1;
+    int (*ptr2)[2] = matrix2;
+    int (*ptrProd)[2] = product;
+
+    // Multiply matrices using pointers
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            for (int k = 0; k < cols1; k++) {
+                *(*(ptrProd + i) + j) += *(*(ptr1 + i) + k) * *(*(ptr2 + k) + j);
+            }
+        }
+    }
+
+    // Print product matrix
+    printf("Product of the matrices:\n");
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            printf("%d ", *(*(ptrProd + i) + j));
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Product of the matrices:
+58 64 
+139 154
+~~~
+###  42. write a program to concatenate two strings using pointers
+~~~c
+#include <stdio.h>
+
+int main() {
+    char str1[100], str2[50];
+    char *ptr1, *ptr2;
+
+    printf("Enter first string: ");
+    fgets(str1, sizeof(str1), stdin);
+    printf("Enter second string: ");
+    fgets(str2, sizeof(str2), stdin);
+
+    // Remove newline characters if present
+    for (int i = 0; str1[i] != '\0'; i++) {
+        if (str1[i] == '\n') {
+            str1[i] = '\0';
+            break;
+        }
+    }
+    for (int i = 0; str2[i] != '\0'; i++) {
+        if (str2[i] == '\n') {
+            str2[i] = '\0';
+            break;
+        }
+    }
+
+    ptr1 = str1;
+    // Move ptr1 to the end of str1
+    while (*ptr1 != '\0') {
+        ptr1++;
+    }
+
+    ptr2 = str2;
+    // Copy str2 into str1
+    while (*ptr2 != '\0') {
+        *ptr1 = *ptr2;
+        ptr1++;
+        ptr2++;
+    }
+    *ptr1 = '\0'; // null-terminate the concatenated string
+
+    printf("Concatenated string: %s\n", str1);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter first string: Hello
+Enter second string: World
+Concatenated string: HelloWorld
+~~~
+### 43. Write a program to input elements in an array and sort array using pointers.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    int *ptr = arr;
+    int temp;
+
+    // Input elements
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", ptr + i);
+    }
+
+    // Sort array in ascending order using pointers
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (*(ptr + i) > *(ptr + j)) {
+                temp = *(ptr + i);
+                *(ptr + i) = *(ptr + j);
+                *(ptr + j) = temp;
+            }
+        }
+    }
+
+    // Print sorted array
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", *(ptr + i));
+    }
+    printf("\n");
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter the number of elements: 5
+Enter 5 elements:
+2 31 23 5 10
+Sorted array: 2 5 10 23 31
+~~~
+###  44. Program to access dynamically allocated memory as a 1d array
+~~~c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // Dynamically allocate memory
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // Input elements
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", arr + i);  // access as 1D array using pointer
+    }
+
+    // Display elements
+    printf("Elements of the array are: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", *(arr + i));
+    }
+    printf("\n");
+
+    // Free allocated memory
+    free(arr);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter the number of elements: 5
+Enter 5 elements:
+10 20 30 40 50
+Elements of the array are: 10 20 30 40 50
+~~~~
+### 45. Program to access dynamically allocate a 2-D array using a pointer to an array
+~~~c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int rows = 2, cols = 3;
+    int (*arr)[cols];  // pointer to an array of 'cols' integers
+
+    // Dynamically allocate memory for 2D array
+    arr = malloc(rows * sizeof(*arr));
+    if (arr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // Input elements
+    printf("Enter elements of %dx%d array:\n", rows, cols);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    // Display elements
+    printf("The 2D array is:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Free allocated memory
+    free(arr);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter elements of 2x3 array:
+1 2 3 4 5 6
+The 2D array is:
+1 2 3 
+4 5 6
+~~~
+###  46. Write a program to print array of pointer
+~~~c
+#include <stdio.h>
+
+int main() {
+    // Array of pointers pointing to integers
+    int a = 10, b = 20, c = 30;
+    int *arr[3];
+
+    arr[0] = &a;
+    arr[1] = &b;
+    arr[2] = &c;
+
+    // Print values using array of pointers
+    printf("Values of integers using array of pointers:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("%d ", *arr[i]);
+    }
+    printf("\n");
+
+    // Print addresses using array of pointers
+    printf("Addresses stored in array of pointers:\n");
+    for (int i = 0; i < 3; i++)  {
+        printf("%p ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Values of integers using array of pointers:
+10 20 30 
+Addresses stored in array of pointers:
+0x7ffd97ab9a94 0x7ffd97ab9a90 0x7ffd97ab9a8c
+~~~
+###  47. Write a program to print pointer to an array
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int (*ptr)[5] = &arr;  // pointer to the entire array
+
+    printf("Elements of the array using pointer to array:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", (*ptr)[i]);
+    }
+    printf("\n");
+
+    printf("Address of the array: %p\n", (void*)ptr);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Elements of the array using pointer to array:
+10 20 30 40 50 
+Address of the array: 0x7fffd7fd7d30
+~~~
+### 48. Program to dynamically allocate a 2-D array using array of pointers
+~~~c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int rows = 2, cols = 3;
+    int **arr;
+
+    // Allocate memory for array of pointers (rows)
+    arr = (int **)malloc(rows * sizeof(int *));
+    if (arr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // Allocate memory for each row (columns)
+    for (int i = 0; i < rows; i++) {
+        arr[i] = (int *)malloc(cols * sizeof(int));
+        if (arr[i] == NULL) {
+            printf("Memory allocation failed for row %d.\n", i);
+            return 1;
+        }
+    }
+
+    // Input elements
+    printf("Enter elements of %dx%d array:\n", rows, cols);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    // Display elements
+    printf("The 2D array is:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Free allocated memory
+    for (int i = 0; i < rows; i++) {
+        free(arr[i]);
+    }
+    free(arr);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter elements of 2x3 array:
+1 2 3 4 5 6
+The 2D array is:
+1 2 3 
+4 5 6 
+~~~
+### 49. Program to invoke a function using function pointer
+~~~c
+#include <stdio.h>
+
+// Sample function to add two integers
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    // Function pointer declaration and initialization
+    int (*funcPtr)(int, int) = add;
+
+    // Invoke function using function pointer
+    int result = funcPtr(x, y);
+
+    printf("Sum of %d and %d = %d\n", x, y, result);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Sum of 10 and 20 = 30
+~~~
+### 50. Program to send a function ‘s address as an argument to other function
+~~~c
+#include <stdio.h>
+
+// Sample function to display a message
+void displayMessage() {
+    printf("Hello from displayMessage function!\n");
+}
+
+// Function that takes a function pointer as an argument
+void callFunction(void (*func)()) {
+    printf("Calling function passed as argument:\n");
+    func();  // invoke the passed function
+}
+
+int main() {
+    // Pass the address of displayMessage to callFunction
+    callFunction(displayMessage);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Calling function passed as argument:
+Hello from displayMessage function!
+~~~
+###  51. Program to pass a pointer containing functions arguments address as an argument
+~~~c
+#include <stdio.h>
+
+// Function to add two numbers using pointers to arguments
+void addNumbers(int *a, int *b, int *result) {
+    *result = *a + *b;
+}
+
+int main() {
+    int x = 10, y = 20, sum;
+
+    // Pass addresses of arguments to the function
+    addNumbers(&x, &y, &sum);
+
+    printf("Sum of %d and %d = %d\n", x, y, sum);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Sum of 10 and 20 = 30
+~~~
+
