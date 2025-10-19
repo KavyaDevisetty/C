@@ -722,35 +722,6 @@ void reverseString(char *str) {
 }
 
 int main() {
-    char str[] = "Hello, World!";
-
-    printf("Original string: %s\n", str);
-    reverseString(str);
-    printf("Reversed string: %s\n", str);
-
-    return 0;
-}
-~~~
-#include <stdio.h>
-#include <string.h>
-
-// Function to reverse a string in place using pointers
-void reverseString(char *str) {
-    char *start = str;
-    char *end = str + strlen(str) - 1;
-    char temp;
-
-    while (start < end) {
-        temp = *start;
-        *start = *end;
-        *end = temp;
-
-        start++;
-        end--;
-    }
-}
-
-int main() {
     char str[] = "Github";
 
     printf("Original string: %s\n", str);
@@ -760,3 +731,68 @@ int main() {
     return 0;
 }
 ~~~
+### Output
+~~~c
+Original string: Github
+Reversed string: buhtiG
+~~~
+### 24. Write a program that calculates the sum of all elements in an integer array using pointer arithmetic.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *ptr = arr;  // pointer to the first element
+    int sum = 0;
+    int size = 5;
+
+    for (int i = 0; i < size; i++) {
+        sum += *(ptr + i);  // pointer arithmetic
+    }
+    printf("Elements in the array are:");
+    for (int i=0;i<size;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    printf("\nSum of array elements = %d\n", sum);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Elements in the array are:10 20 30 40 50 
+Sum of array elements = 150
+~~~
+###   25. Implement a function to copy one string into another using pointers, without using any standard library functions.
+~~~c
+#include <stdio.h>
+
+// Function to copy string using pointers
+void stringCopy(char *source, char *destination) {
+    while (*source != '\0') {
+        *destination = *source;  
+        source++;
+        destination++;
+    }
+    *destination = '\0';  
+}
+
+int main() {
+    char str1[] = "Hello";
+    char str2[50];  
+
+    stringCopy(str1, str2);
+
+    printf("Original string: %s\n", str1);
+    printf("Copied string: %s\n", str2);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Original string: Hello
+Copied string: Hello
+~~~
+
