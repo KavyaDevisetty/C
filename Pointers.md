@@ -561,3 +561,83 @@ Before function call: x = 10, y = 20
 Inside function after swapping: a = 20, b = 10
 After function call: x = 20, y = 10
 ~~~
+###  18. Program to return more than one value from a function using call by reference.
+~~~c
+#include <stdio.h>
+
+// Function to calculate sum and product using call by reference
+void sumAndProduct(int a, int b, int *sum, int *product) {
+    *sum = a + b;
+    *product = a * b;
+}
+
+int main() {
+    int x = 5, y = 10;
+    int s, p;
+
+    sumAndProduct(x, y, &s, &p);  // pass addresses to get multiple results
+
+    printf("Sum = %d\n", s);
+    printf("Product = %d\n", p);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Sum = 15
+Product = 50
+~~~
+###  19. Write a program to pass a 1D array to a function.
+~~~c
+#include <stdio.h>
+
+// Function to print elements of a 1D array using pointer
+void printArray(int *arr, int size) {
+    printf("Array elements are: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", *(arr + i));
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int size = 5;
+
+    printArray(arr, size);  // passing array as pointer
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Array elements are: 10 20 30 40 50
+~~~
+###  20. Create a function that swaps two numbers using   pointers.
+~~~c
+#include <stdio.h>
+
+// Function to swap two numbers using pointers
+void swap(int *a, int *b) {
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    printf("Before swapping: x = %d, y = %d\n", x, y);
+    swap(&x, &y);  // passing addresses
+    printf("After swapping: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Before swapping: x = 10, y = 20
+After swapping: x = 20, y = 10
+~~~
