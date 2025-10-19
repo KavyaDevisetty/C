@@ -505,3 +505,59 @@ Elements of 3D array using pointer notation:
 7 8 9 
 10 11 12
 ~~~
+### 16. Write a  simple program for call by value.
+~~~c
+#include <stdio.h>
+
+void swap(int a, int b) {
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+    printf("Inside function after swapping: a = %d, b = %d\n", a, b);
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    printf("Before function call: x = %d, y = %d\n", x, y);
+    swap(x, y);   // call by value
+    printf("After function call: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Before function call: x = 10, y = 20
+Inside function after swapping: a = 20, b = 10
+After function call: x = 10, y = 20
+~~~
+###  17. Write a simple program for call by reference.
+~~~c
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("Inside function after swapping: a = %d, b = %d\n", *a, *b);
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    printf("Before function call: x = %d, y = %d\n", x, y);
+    swap(&x, &y);   // call by reference
+    printf("After function call: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Before function call: x = 10, y = 20
+Inside function after swapping: a = 20, b = 10
+After function call: x = 20, y = 10
+~~~
