@@ -1023,3 +1023,141 @@ int main() {
 Enter a positive integer: 5
 Factorial of 5 = 120
 ~~~
+###  32. Write a program to count the number of vowels and consonants in a string using a pointer
+~~~c
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    char *ptr;
+    int vowels = 0, consonants = 0;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);  
+
+    
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n') {
+            str[i] = '\0';
+            break;
+        }
+    }
+
+    ptr = str;  
+
+    while (*ptr != '\0') {
+        char ch = tolower(*ptr); 
+        if ((ch >= 'a' && ch <= 'z')) {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                vowels++;
+            else
+                consonants++;
+        }
+        ptr++;
+    }
+
+    printf("Number of vowels = %d\n", vowels);
+    printf("Number of consonants = %d\n", consonants);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter a string: Github
+Number of vowels = 2
+Number of consonants = 4
+~~~
+### 33.  Write a program  to sort an array using a pointer
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {50, 20, 40, 10, 30};
+    int size = 5;
+    int *ptr = arr;  
+    int temp;
+    printf("Elements in the array:");
+    for(int i=0;i<size;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (*(ptr + i) > *(ptr + j)) {
+                temp = *(ptr + i);
+                *(ptr + i) = *(ptr + j);
+                *(ptr + j) = temp;
+            }
+        }
+    }
+
+    // Printing sorted array
+    printf("\nSorted array: ");
+    for (int i = 0; i < size; i++)
+        printf("%d ", *(ptr + i));
+    printf("\n");
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Elements in the array:50 20 40 10 30 
+Sorted array: 10 20 30 40 50 
+~~~
+###  34. Write a  program to demonstrate how a function returns a pointer.
+~~~c
+#include <stdio.h>
+
+
+int* findMax(int *arr, int size) {
+    int *max = arr;  
+    for (int i = 1; i < size; i++) {
+        if (*(arr + i) > *max)
+            max = arr + i;  
+    }
+    return max;  
+}
+
+int main() {
+    int arr[5] = {10, 50, 30, 20, 40};
+    int size = 5;
+
+    int *maxPtr = findMax(arr, size);  
+
+    printf("Maximum element in the array is %d\n", *maxPtr);
+    printf("Address of maximum element is %p\n", maxPtr);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Maximum element in the array is 50
+Address of maximum element is 0x7fff4eded064
+~~~
+###  35. Write a program  to compute the sum of all elements in an array using pointers
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *ptr = arr;  // pointer to the first element
+    int sum = 0;
+    int size = 5;
+
+    for (int i = 0; i < size; i++) {
+        sum += *(ptr + i);  // add each element using pointer arithmetic
+    }
+
+    printf("Sum of array elements = %d\n", sum);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Sum of array elements = 150
+~~~
