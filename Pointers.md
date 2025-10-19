@@ -641,3 +641,122 @@ int main() {
 Before swapping: x = 10, y = 20
 After swapping: x = 20, y = 10
 ~~~
+###  21. Implement a function that returns the length of a string using pointers
+~~~c
+#include <stdio.h>
+
+// Function to calculate length of string using pointers
+int stringLength(char *str) {
+    int length = 0;
+    while (*str != '\0') {  // iterate until null character
+        length++;
+        str++;
+    }
+    return length;
+}
+
+int main() {
+    char str[] = "Hello, World!";
+    int len = stringLength(str);
+
+    printf("Length of the string \"%s\" is %d\n", str, len);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Length of the string "Hello, World!" is 13
+~~~
+###  22. Write a program to find the maximum and minimum elements in an array using pointers
+~~~c
+#include <stdio.h>
+
+void findMaxMin(int *arr, int size, int *max, int *min) {
+    *max = *min = *arr;  // initialize with first element
+    for (int i = 1; i < size; i++) {
+        if (*(arr + i) > *max)
+            *max = *(arr + i);
+        if (*(arr + i) < *min)
+            *min = *(arr + i);
+    }
+}
+
+int main() {
+    int arr[6] = {12, 5, 8, 20, 3, 15};
+    int max, min;
+    int size = 6;
+
+    findMaxMin(arr, size, &max, &min);  // pass array and addresses of max/min
+
+    printf("Maximum element = %d\n", max);
+    printf("Minimum element = %d\n", min);
+
+    return 0;
+}
+~~~
+### Output
+~~~
+Maximum element = 20
+Minimum element = 3
+~~~
+###  23. Develop a function to reverse a string in place using pointers.
+~~~c
+#include <stdio.h>
+#include <string.h>
+
+// Function to reverse a string in place using pointers
+void reverseString(char *str) {
+    char *start = str;
+    char *end = str + strlen(str) - 1;
+    char temp;
+
+    while (start < end) {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    char str[] = "Hello, World!";
+
+    printf("Original string: %s\n", str);
+    reverseString(str);
+    printf("Reversed string: %s\n", str);
+
+    return 0;
+}
+~~~
+#include <stdio.h>
+#include <string.h>
+
+// Function to reverse a string in place using pointers
+void reverseString(char *str) {
+    char *start = str;
+    char *end = str + strlen(str) - 1;
+    char temp;
+
+    while (start < end) {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    char str[] = "Github";
+
+    printf("Original string: %s\n", str);
+    reverseString(str);
+    printf("Reversed string: %s\n", str);
+
+    return 0;
+}
+~~~
