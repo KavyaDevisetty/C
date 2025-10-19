@@ -401,3 +401,107 @@ int main() {
 Elements of array using pointer dereferencing:
 10 20 30 40 50
 ~~~
+###  13. program  to print the values  and address  of elements of 2-d array.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int i, j;
+    int arr[2][3] = {
+        {10, 20, 30},
+        {40, 50, 60}
+    };
+
+    printf("Values and addresses of elements of 2D array:\n\n");
+
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("arr[%d][%d] = %d\tAddress = %p\n", i, j, arr[i][j], &arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Values and addresses of elements of 2D array:
+
+arr[0][0] = 10	Address = 0x7ffe79c48920
+arr[0][1] = 20	Address = 0x7ffe79c48924
+arr[0][2] = 30	Address = 0x7ffe79c48928
+
+arr[1][0] = 40	Address = 0x7ffe79c4892c
+arr[1][1] = 50	Address = 0x7ffe79c48930
+arr[1][2] = 60	Address = 0x7ffe79c48934
+~~~
+###  14. Program to print  elements of a 2-D array by subscripting a pointer to an array variable.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[2][3] = {
+        {10, 20, 30},
+        {40, 50, 60}
+    };
+    int (*ptr)[3];   // pointer to an array of 3 integers
+    ptr = arr;       // points to the first row of the 2D array
+
+    printf("Elements of 2D array accessed by subscripting pointer to an array:\n\n");
+
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", ptr[i][j]);   // subscripting pointer to access elements
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Elements of 2D array accessed by subscripting pointer to an array:
+
+10 20 30 
+40 50 60 
+~~~
+###  15. Program to print  elements of a 3-D array using    pointer notation.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[2][2][3] = {
+        { {1, 2, 3}, {4, 5, 6} },
+        { {7, 8, 9}, {10, 11, 12} }
+    };
+
+    int (*p)[2][3] = arr;  
+   
+
+    printf("Elements of 3D array using pointer notation:\n\n");
+
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            for (int k = 0; k < 3; k++) {
+                printf("%d ", *(*(*(p + i) + j) + k));
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Elements of 3D array using pointer notation:
+
+1 2 3 
+4 5 6 
+
+7 8 9 
+10 11 12
+~~~
