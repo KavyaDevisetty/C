@@ -335,3 +335,69 @@ Element 2: Value = 30	 Address = 0x7ffefe1f6a98
 Element 3: Value = 40	 Address = 0x7ffefe1f6a9c
 Element 4: Value = 50	 Address = 0x7ffefe1f6aa0
 ~~~
+
+
+### 11. Program to understand the difference between a  to   an integer and a pointer to an array of integers.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+
+    int *p;         // pointer to an integer
+    int (*q)[5];    // pointer to an array of 5 integers
+
+    p = arr;        // points to first element of array
+    q = &arr;       // points to the entire array
+
+    printf("Address stored in p (int *): %p\n", p);
+    printf("Address stored in q (int (*)[5]): %p\n\n", q);
+
+    printf("After incrementing:\n");
+    printf("p + 1 = %p  → moves by size of one int\n", p + 1);
+    printf("q + 1 = %p  → moves by size of entire array (5 ints)\n\n", q + 1);
+
+    printf("Value pointed by *p = %d\n", *p);      // first element
+    printf("Value pointed by (*q)[0] = %d\n", (*q)[0]);  // first element using pointer to array
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Address stored in p (int *): 0x7ffcd730f8c0
+Address stored in q (int (*)[5]): 0x7ffcd730f8c0
+
+After incrementing:
+p + 1 = 0x7ffcd730f8c4  → moves by size of one int
+q + 1 = 0x7ffcd730f8d4  → moves by size of entire array (5 ints)
+
+Value pointed by *p = 10
+Value pointed by (*q)[0] = 10
+
+~~~
+
+###  12. Write  a program to dereference a pointer to an array.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int (*ptr)[5];   // pointer to an array of 5 integers
+
+    ptr = &arr;      // assign address of array to pointer
+
+    printf("Elements of array using pointer dereferencing:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", (*ptr)[i]);   // dereferencing pointer to access array elements
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Elements of array using pointer dereferencing:
+10 20 30 40 50
+~~~
