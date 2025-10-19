@@ -796,3 +796,230 @@ Original string: Hello
 Copied string: Hello
 ~~~
 
+###  26.  Write a program to compare two strings lexicographically (like the strcmp function) using pointers.
+~~~c
+#include <stdio.h>
+
+// Function to compare two strings lexicographically using pointers
+int compareStrings(char *str1, char *str2) {
+    while (*str1 && *str2) {
+        if (*str1 != *str2)
+            return (*str1 - *str2);  // difference of ASCII values
+        str1++;
+        str2++;
+    }
+    return (*str1 - *str2);  // handles case when strings have different lengths
+}
+
+int main() {
+    char str1[50], str2[50];
+
+    printf("Enter first string: ");
+    scanf("%s", str1);
+    printf("Enter second string: ");
+    scanf("%s", str2);
+
+    int result = compareStrings(str1, str2);
+
+    if (result == 0)
+        printf("Strings are equal.\n");
+    else if (result < 0)
+        printf("\"%s\" is lexicographically smaller than \"%s\".\n", str1, str2);
+    else
+        printf("\"%s\" is lexicographically greater than \"%s\".\n", str1, str2);
+
+    return 0;
+}
+
+~~~
+### Output
+~~~c
+Enter first string: Hello
+Enter second string: Hii
+"Hello" is lexicographically smaller than "Hii".
+~~~
+###  27.  Develop a function to reverse an array of integers in place using pointers.
+~~~c
+#include <stdio.h>
+
+// Function to reverse an array in place using pointers
+void reverseArray(int *arr, int size) {
+    int *start = arr;
+    int *end = arr + size - 1;
+    int temp;
+
+    while (start < end) {
+        // Swap the values
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int size = 5;
+
+    printf("Original array: ");
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+    reverseArray(arr, size);
+
+    printf("Reversed array: ");
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Original array: 10 20 30 40 50 
+Reversed array: 50 40 30 20 10
+~~~
+###  28.  Write a program to find the largest element using Dynamic Memory Allocation.
+~~~c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, i;
+    int *arr;
+    int max;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // Allocate memory dynamically
+    arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // Input elements
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Find largest element
+    max = arr[0];
+    for (i = 1; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+    }
+
+    printf("Largest element = %d\n", max);
+
+    // Free allocated memory
+    free(arr);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter the number of elements: 5
+Enter 5 elements:
+1 2 3 2 5
+Largest element = 5
+~~~
+###  29. Write a program in C to calculate the length of a string using a pointer
+~~~c
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    char *ptr;
+    int length = 0;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);  
+
+    
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n') {
+            str[i] = '\0';
+            break;
+        }
+    }
+
+    ptr = str;  
+
+    while (*ptr != '\0') {
+        length++;
+        ptr++;
+    }
+
+    printf("Length of the string is %d\n", length);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter a string: Github
+Length of the string is 6
+~~~
+###  30. Write a program  to swap elements using call by reference
+~~~c
+#include <stdio.h>
+
+// Function to swap two elements using call by reference
+void swap(int *a, int *b) {
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 15, y = 25;
+
+    printf("Before swapping: x = %d, y = %d\n", x, y);
+
+    swap(&x, &y);  // passing addresses (call by reference)
+
+    printf("After swapping: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Before swapping: x = 15, y = 25
+After swapping: x = 25, y = 15
+~~~
+###  31. Write a program to find the factorial of a given number using pointers
+~~~c
+#include <stdio.h>
+
+int main() {
+    int n;
+    unsigned long long factorial = 1;
+    unsigned long long *ptr = &factorial;  // pointer to store factorial
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        *ptr *= i;  // calculate factorial using pointer
+    }
+
+    printf("Factorial of %d = %llu\n", n, *ptr);
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter a positive integer: 5
+Factorial of 5 = 120
+~~~
