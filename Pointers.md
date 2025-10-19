@@ -1161,3 +1161,212 @@ int main() {
 ~~~c
 Sum of array elements = 150
 ~~~
+###  36. Write a program  to print the elements of an array in reverse order.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *ptr = arr;  // pointer to the first element
+    int size = 5;
+    printf("Elements in the array:");
+    for(int i=0;i<size;i++)
+    {
+        printf( " %d ",arr[i]);
+    }
+    printf("\nArray elements in reverse order using pointer: ");
+    for (int i = size - 1; i >= 0; i--) {
+        printf("%d ", *(ptr + i));
+    }
+    printf("\n");
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Elements in the array: 10  20  30  40  50 
+Array elements in reverse order using pointer: 50 40 30 20 10
+~~~
+###  37. Write a program to show a pointer to an array whose contents are pointers to structures.
+~~~c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define a structure
+struct Student {
+    char name[50];
+    int age;
+};
+
+int main() {
+    // Array of pointers to structures
+    struct Student *students[3];
+
+    // Dynamically allocate memory for each structure
+    for (int i = 0; i < 3; i++) {
+        students[i] = (struct Student *)malloc(sizeof(struct Student));
+        printf("Enter name of student %d: ", i + 1);
+        scanf("%s", students[i]->name);
+        printf("Enter age of student %d: ", i + 1);
+        scanf("%d", &students[i]->age);
+    }
+
+    // Pointer to the array of pointers
+    struct Student **ptr = students;
+
+    printf("\nStudent Details:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Name: %s, Age: %d\n", ptr[i]->name, ptr[i]->age);
+    }
+
+    // Free allocated memory
+    for (int i = 0; i < 3; i++) {
+        free(students[i]);
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter name of student 1: A
+Enter age of student 1: 20
+Enter name of student 2: B
+Enter age of student 2: 21
+Enter name of student 3: C
+Enter age of student 3: 22
+
+Student Details:
+Name: A, Age: 20
+Name: B, Age: 21
+Name: C, Age: 22
+~~~
+###  38. Write a program  to show a pointer to an array whose contents are pointers to structures
+~~~c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define a structure
+struct Student {
+    char name[50];
+    int age;
+};
+
+int main() {
+    // Array of pointers to structures
+    struct Student *students[3];
+
+    // Dynamically allocate memory for each structure
+    for (int i = 0; i < 3; i++) {
+        students[i] = (struct Student *)malloc(sizeof(struct Student));
+        printf("Enter name of student %d: ", i + 1);
+        scanf("%s", students[i]->name);
+        printf("Enter age of student %d: ", i + 1);
+        scanf("%d", &students[i]->age);
+    }
+
+    // Pointer to the array of pointers
+    struct Student **ptr = students;
+
+    printf("\nStudent Details:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Name: %s, Age: %d\n", ptr[i]->name, ptr[i]->age);
+    }
+
+    // Free allocated memory
+    for (int i = 0; i < 3; i++) {
+        free(students[i]);
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter name of student 1: A
+Enter age of student 1: 20
+Enter name of student 2: B
+Enter age of student 2: 21
+Enter name of student 3: C
+Enter age of student 3: 22
+
+Student Details:
+Name: A, Age: 20
+Name: B, Age: 21
+Name: C, Age: 22
+~~~
+###  39. Logic to search an element in an array using pointers.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *ptr = arr;  // pointer to first element
+    int size = 5;
+    int key;
+    int found = 0;
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    for (int i = 0; i < size; i++) {
+        if (*(ptr + i) == key) {
+            printf("Element %d found at index %d\n", key, i);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("Element %d not found in the array.\n", key);
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Enter element to search: 20
+Element 20 found at index 1
+~~~
+### 40. Write a  program to add two matrices using pointers.
+~~~c
+#include <stdio.h>
+
+int main() {
+    int rows = 2, cols = 3;
+    int matrix1[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    int matrix2[2][3] = {{6, 5, 4}, {3, 2, 1}};
+    int sum[2][3];
+    
+    int (*ptr1)[3] = matrix1;
+    int (*ptr2)[3] = matrix2;
+    int (*ptrSum)[3] = sum;
+
+    // Adding matrices using pointers
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            *(*(ptrSum + i) + j) = *(*(ptr1 + i) + j) + *(*(ptr2 + i) + j);
+        }
+    }
+
+    // Printing the sum matrix
+    printf("Sum of the two matrices:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", *(*(ptrSum + i) + j));
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+~~~
+### Output
+~~~c
+Sum of the two matrices:
+7 7 7 
+7 7 7
+~~~
+
